@@ -193,6 +193,13 @@ servicenow-incident-client-script-ui-policy/
 ---
 
 ## 👤 Author & Credentials
-- **Student**: Ramajayam V (`ramajayamv06@gmail.com`)
+
+| Name | Role | Email |
+|------|------|-------|
+| Ramajayam V | Team Leader | ramajayamv06@gmail.com |
+| Sharmila A | Member | sharmilathanam2007@gmail.com |
+| Shyam S | Member | shyam10a2@gmail.com |
+| Dhayanithi S | Member | Dhayanithi08012008@gmail.com |
+
 - **GitHub**: [@Ramajayam06](https://github.com/Ramajayam06)
 - **Project Verified On**: SkillWallet & ServiceNow PDI `dev388119`
