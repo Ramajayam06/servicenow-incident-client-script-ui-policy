@@ -1,0 +1,87 @@
+{
+  "instance": "https://dev388119.service-now.com",
+  "verified_at": "2026-10-01T21:30:00Z",
+  "configurations": {
+    "sys_ui_policy": [
+      {
+        "sys_id": "2d5319af93270f10f44975dcebba10c0",
+        "short_description": "High Impact Control",
+        "table": "incident",
+        "active": "true",
+        "global": "true",
+        "reverse_if_false": "true",
+        "conditions": "impact=1^EQ",
+        "actions": [
+          {
+            "sys_id": "c0a3d1ef93270f10f44975dcebba101b",
+            "field": "assignment_group",
+            "mandatory": "true",
+            "disabled": "ignore",
+            "visible": "ignore"
+          },
+          {
+            "sys_id": "d4a3d1ef93270f10f44975dcebba1021",
+            "field": "urgency",
+            "disabled": "true",
+            "mandatory": "ignore",
+            "visible": "ignore"
+          }
+        ]
+      }
+    ],
+    "sys_script_client": [
+      {
+        "sys_id": "d25359af93270f10f44975dcebba101c",
+        "name": "Auto set urgency for high impact",
+        "table": "incident",
+        "type": "onChange",
+        "field": "impact",
+        "active": "true",
+        "global": "true",
+        "description": "Automatically set Urgency to 1 (High) and display info message when Impact is set to 1 (High)."
+      },
+      {
+        "sys_id": "da53ddab93270f10f44975dcebba1081",
+        "name": "Prevent save if Assigned To missing",
+        "table": "incident",
+        "type": "onSubmit",
+        "active": "true",
+        "global": "true",
+        "description": "Validates that Assigned To is populated when Impact is 1 (High). Shows field error and aborts submission if missing."
+      },
+      {
+        "sys_id": "a153ddab93270f10f44975dcebba1087",
+        "name": "Prevent state change via list edit",
+        "table": "incident",
+        "type": "onCellEdit",
+        "field": "state",
+        "active": "true",
+        "global": "true",
+        "description": "Prevents inline cell editing of the State field in incident list view with an alert message."
+      }
+    ]
+  },
+  "test_execution_results": {
+    "test_1_mandatory_enforcement": {
+      "status": "PASSED",
+      "details": "Impact=1 triggers onChange banner, locks Urgency to 1 (High, disabled), sets Assignment Group mandatory. Submitting with empty Assigned To is blocked with error: 'Assigned To is mandatory for High impact incidents.'"
+    },
+    "test_2_successful_save": {
+      "status": "PASSED",
+      "record": "INC0010001",
+      "details": "Populated Assigned To (David Loo) with Impact=1. Incident saved successfully. Priority calculated to 1 - Critical."
+    },
+    "test_3_reverse_condition": {
+      "status": "PASSED",
+      "details": "Changing Impact from 1 to 2 reversed UI Policy: Urgency unlocked to editable, Assignment Group mandatory reverted to false."
+    },
+    "test_4_list_edit_rejection": {
+      "status": "PASSED",
+      "details": "Double-clicking State column in list view triggered alert and cancelled edit callback(false)."
+    },
+    "test_5_form_update": {
+      "status": "PASSED",
+      "details": "Updating State directly inside record form view succeeded normally."
+    }
+  }
+}

@@ -1,0 +1,7 @@
+ServiceNow Personal Developer Instance (PDI) Details:
+Instance URL: https://dev388119.service-now.com
+Instance Version: Brazil Patch 0 (glide-brazil-05-13-2025__patch0-07-23-2025)
+Project Scope: Incident Management Client Scripts & UI Policy
+Target Table: incident
+Active Record Verified: INC0010001
+Status: Online & Fully Configured

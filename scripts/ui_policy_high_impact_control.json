@@ -1,0 +1,27 @@
+{
+  "ui_policy": {
+    "short_description": "High Impact Control",
+    "table": "incident",
+    "active": true,
+    "global": true,
+    "reverse_if_false": true,
+    "on_load": true,
+    "conditions": "impact=1^EQ"
+  },
+  "ui_policy_actions": [
+    {
+      "field": "assignment_group",
+      "table": "incident",
+      "mandatory": "true",
+      "disabled": "ignore",
+      "visible": "ignore"
+    },
+    {
+      "field": "urgency",
+      "table": "incident",
+      "mandatory": "ignore",
+      "disabled": "true",
+      "visible": "ignore"
+    }
+  ]
+}
