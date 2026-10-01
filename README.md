@@ -24,6 +24,17 @@ An enterprise-grade ServiceNow customization on the `incident` table enforcing a
 
 ---
 
+## Team Members
+
+| Name | Role | Email |
+|------|------|-------|
+| Ramajayam V | Team Leader | ramajayamv06@gmail.com |
+| Sharmila A | Member | sharmilathanam2007@gmail.com |
+| Shyam S | Member | shyam10a2@gmail.com |
+| Dhayanithi S | Member | Dhayanithi08012008@gmail.com |
+
+---
+
 ## 🏗️ Architecture & Requirements Overview
 
 ```
